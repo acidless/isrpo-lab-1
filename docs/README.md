@@ -18,3 +18,4 @@
 
 Добавлены функции для круга и квадрата ([#8ba9aeb](https://github.com/acidless/isrpo-lab-1/commit/8ba9aeb3cea847b63a91ac378a2a6db758682460))
 
+Добавлены unit-тесты ([#7e7de02](https://github.com/acidless/isrpo-lab-1/commit/7e7de02d5ddce673f9d9b232997dcd54956c0f68))
