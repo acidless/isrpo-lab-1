@@ -1,0 +1,24 @@
+name: Unit Tests
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  test:
+    strategy:
+        matrix:
+          runner: [ubuntu-latest, windows-latest]
+        
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+
+    - name: Run unit tests
+      run: python -m unittest discover -p *.py
