@@ -7,11 +7,7 @@ on:
 
 jobs:
   test:
-    strategy:
-        matrix:
-          runner: [ubuntu-latest, windows-latest]
-        
-    runs-on: ${{ matrix.os }}
+    runs-on: [ubuntu-latest, windows-latest]
 
     steps:
     - name: Checkout repository
