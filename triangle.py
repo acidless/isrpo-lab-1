@@ -15,8 +15,9 @@ class TriangleTestCase(unittest.TestCase):
         self.assertEqual(res, 10)
     
     def test_zero_perimeter(self):
-        res = perimeter(0, 0, 0)
-        self.assertEqual(res, 0)
+        with self.assertRaises(Exception) as context:
+            perimeter(0, 0, 0)
+        self.assertTrue(context.exception)
 
     def test_negative_perimeter(self):
         with self.assertRaises(Exception) as context:
@@ -26,8 +27,11 @@ class TriangleTestCase(unittest.TestCase):
     def test_perimeter(self):
         res = perimeter(3, 4, 5)
         self.assertEqual(res, 12)
-       
-
+    
+    def wrong_triangle(self):
+        with self.assertRaises(Exception) as context:
+            perimeter(10, 2, 1)
+        self.assertTrue(context.exception)   
 
 def area(a, h):
     ''' Возвращает площадь треугольника
@@ -54,5 +58,11 @@ def perimeter(a, b, c):
     '''
     if(a < 0 or b < 0 or c < 0):
         raise Exception("Сторона не может быть отрицательной")
+    
+    if(a + b <= c or a + c <= b or b + c <= a):
+        raise Exception("Такого треугольника не существует")
+
+    if (a == 0 or b == 0 or c == 0):
+        return 0
 
     return a + b + c
