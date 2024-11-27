@@ -15,9 +15,8 @@ class RectangleTestCase(unittest.TestCase):
         self.assertEqual(res, 10)
     
     def test_zero_perimeter(self):
-        with self.assertRaises(Exception) as context:
-            perimeter(0, 4)
-        self.assertTrue(context.exception)
+        res = perimeter(4, 5)
+        self.assertEqual(res, 0)
 
     def test_negative_perimeter(self):
         with self.assertRaises(Exception) as context:
@@ -52,7 +51,7 @@ def perimeter(a, b):
                 perimeter (number): периметр прямоугольника
     '''
 
-    if(a <= 0 or b <= 0):
-        raise Exception("Сторона не может быть нулевой или отрицательной")
+    if(a < 0 or b < 0):
+        raise Exception("Сторона не может быть отрицательной")
 
     return a * 2 + b * 2
